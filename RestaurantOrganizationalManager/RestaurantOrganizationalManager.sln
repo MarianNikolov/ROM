@@ -3,9 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{18C50C29-A6FD-4F50-B597-B65559366478}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ROM.Web", "ROM.Web\ROM.Web.csproj", "{95423D04-261F-44A9-A9B8-0DB4AF2E9387}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95423D04-261F-44A9-A9B8-0DB4AF2E9387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95423D04-261F-44A9-A9B8-0DB4AF2E9387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95423D04-261F-44A9-A9B8-0DB4AF2E9387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95423D04-261F-44A9-A9B8-0DB4AF2E9387}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{95423D04-261F-44A9-A9B8-0DB4AF2E9387} = {18C50C29-A6FD-4F50-B597-B65559366478}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34E14D7E-E5AD-40C8-A3FD-41A127B88C2F}
