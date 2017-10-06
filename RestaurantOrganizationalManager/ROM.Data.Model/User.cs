@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using ROM.Data.Model.Contracts;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Claims;
@@ -11,6 +12,13 @@ namespace ROM.Data.Model
 {
     public class User : IdentityUser, IAuditable, IDeletable
     {
+        private ICollection<Restaurant> restaurant;
+
+        public User()
+        {
+            this.restaurant = new HashSet<Restaurant>();
+        }
+
         [Index]
         public bool IsDeleted { get; set; }
 
@@ -22,6 +30,18 @@ namespace ROM.Data.Model
 
         [DataType(DataType.DateTime)]
         public DateTime? ModifiedOn { get; set; }
+
+        public virtual ICollection<Restaurant> Restaurants
+        {
+            get
+            {
+                return this.restaurant;
+            }
+            set
+            {
+                this.restaurant = value;
+            }
+        }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

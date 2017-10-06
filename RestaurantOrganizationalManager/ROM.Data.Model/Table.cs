@@ -8,5 +8,9 @@ namespace ROM.Data.Model
 {
     public class Table
     {
+        public int Number { get; set; }
+
+        public bool IsFree { get; set; }
+
     }
 }
