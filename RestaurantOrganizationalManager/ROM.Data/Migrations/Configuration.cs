@@ -54,21 +54,19 @@ namespace ROM.Data.Migrations
 
         private void SeedSampleData(DbContext context)
         {
-            //if (!context.Posts.Any())
-            //{
-            //    for (int i = 0; i < 5; i++)
-            //    {
-            //        var post = new Post()
-            //        {
-            //            Title = "Post " + i,
-            //            Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lobortis nibh. Nullam bibendum, tortor quis porttitor fringilla, eros risus consequat orci, at scelerisque mauris dolor sit amet nulla. Vivamus turpis lorem, pellentesque eget enim ut, semper faucibus tortor. Aenean malesuada laoreet lorem.",
-            //            Author = context.Users.First(x => x.Email == AdministratorUserName),
-            //            CreatedOn = DateTime.Now
-            //        };
+            if (!context.Restaurants.Any())
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    var restaurant = new Restaurant()
+                    {
+                        Name = "Restaurant " + i,
+                        CreatedOn = DateTime.Now
+                    };
 
-            //        context.Posts.Add(post);
-            //    }
-            //}
+                    context.Restaurants.Add(restaurant);
+                }
+            }
         }
     }
 }

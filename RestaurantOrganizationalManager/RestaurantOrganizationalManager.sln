@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ROM.Data", "ROM.Data\ROM.Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ROM.Data.Model", "ROM.Data.Model\ROM.Data.Model.csproj", "{FB73679E-D55F-4F7E-8A71-09B7E69CEF0B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ROM.Web.Infrastructure", "ROM.Web.Infrastructure\ROM.Web.Infrastructure.csproj", "{35ABF910-CCBC-4369-BD5B-E5ED30960F84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{FB73679E-D55F-4F7E-8A71-09B7E69CEF0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB73679E-D55F-4F7E-8A71-09B7E69CEF0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB73679E-D55F-4F7E-8A71-09B7E69CEF0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35ABF910-CCBC-4369-BD5B-E5ED30960F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35ABF910-CCBC-4369-BD5B-E5ED30960F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35ABF910-CCBC-4369-BD5B-E5ED30960F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35ABF910-CCBC-4369-BD5B-E5ED30960F84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{95423D04-261F-44A9-A9B8-0DB4AF2E9387} = {18C50C29-A6FD-4F50-B597-B65559366478}
 		{850E0CFD-A6D9-4473-B9DC-C71DF091B07E} = {01F6E140-8EBB-4059-AB3A-5679ACE314B6}
 		{FB73679E-D55F-4F7E-8A71-09B7E69CEF0B} = {01F6E140-8EBB-4059-AB3A-5679ACE314B6}
+		{35ABF910-CCBC-4369-BD5B-E5ED30960F84} = {18C50C29-A6FD-4F50-B597-B65559366478}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34E14D7E-E5AD-40C8-A3FD-41A127B88C2F}

@@ -45,7 +45,9 @@
   <ItemGroup>
     <Compile Include="AutoMapperConfig.cs" />
     <Compile Include="IHaveCustomMappings.cs" />
+    <Compile Include="IMapFrom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryableExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,12 +1,4 @@
-﻿using ROM.Data.Migrations;
-using ROM.Web.App_Start;
-using ROM.Web.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Reflection;
-using System.Web;
+﻿using ROM.Web.App_Start;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -18,13 +10,13 @@ namespace ROM.Web
         protected void Application_Start()
         {
             DatabaseConfig.RegisterDatabase();
+            ViewEnginesConfig.RegisterViewEngines();
+            MapperConfig.RegesterMapper();
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            var mapper = new AutoMapperConfig();
-            mapper.Execute(Assembly.GetExecutingAssembly());
         }
     }
 }

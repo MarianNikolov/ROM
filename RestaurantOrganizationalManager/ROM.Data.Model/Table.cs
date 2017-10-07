@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ROM.Data.Model.Abstracts;
 
 namespace ROM.Data.Model
 {
-    public class Table
+    public class Table : BaseModel
     {
         public int Number { get; set; }
 

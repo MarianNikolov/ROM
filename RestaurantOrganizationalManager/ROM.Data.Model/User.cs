@@ -17,6 +17,7 @@ namespace ROM.Data.Model
         public User()
         {
             this.restaurant = new HashSet<Restaurant>();
+            this.CreatedOn = DateTime.Now;
         }
 
         [Index]

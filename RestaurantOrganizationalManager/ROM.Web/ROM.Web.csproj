@@ -206,11 +206,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\DatabaseConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
-    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\MapperConfig.cs" />
+    <Compile Include="App_Start\NinjectConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\ViewEnginesConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -305,6 +308,10 @@
     <ProjectReference Include="..\ROM.Data\ROM.Data.csproj">
       <Project>{850E0CFD-A6D9-4473-B9DC-C71DF091B07E}</Project>
       <Name>ROM.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ROM.Web.Infrastructure\ROM.Web.Infrastructure.csproj">
+      <Project>{35abf910-ccbc-4369-bd5b-e5ed30960f84}</Project>
+      <Name>ROM.Web.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

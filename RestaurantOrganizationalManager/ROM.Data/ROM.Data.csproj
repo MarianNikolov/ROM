@@ -75,6 +75,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbContext.cs" />
+    <Compile Include="Migrations\201710071206180_initial.cs" />
+    <Compile Include="Migrations\201710071206180_initial.Designer.cs">
+      <DependentUpon>201710071206180_initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\EfRepository.cs" />
@@ -91,6 +95,11 @@
       <Project>{fb73679e-d55f-4f7e-8a71-09b7e69cef0b}</Project>
       <Name>ROM.Data.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710071206180_initial.resx">
+      <DependentUpon>201710071206180_initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
