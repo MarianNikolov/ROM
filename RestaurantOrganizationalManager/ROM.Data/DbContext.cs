@@ -14,7 +14,9 @@ namespace ROM.Data
         {
         }
 
-       // public IDbSet<Table> Tables { get; set; }
+        public IDbSet<Restaurant> Restaurants { get; set; }
+
+        public IDbSet<Table> Tables { get; set; }
 
         public override int SaveChanges()
         {

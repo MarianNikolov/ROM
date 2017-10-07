@@ -14,6 +14,7 @@ namespace ROM.Web.App_Start
     using ROM.Data;
     using ROM.Data.Repository;
     using ROM.Data.SaveContext;
+    using AutoMapper;
 
     public static class NinjectConfig 
     {
@@ -82,7 +83,7 @@ namespace ROM.Web.App_Start
             kernel.Bind(typeof(System.Data.Entity.DbContext), typeof(DbContext)).To<DbContext>().InRequestScope();
             kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepository<>));
             kernel.Bind<ISaveContext>().To<SaveContext>();
-            //kernel.Bind<IMapper>().To<Mapper>();
+            kernel.Bind<IMapper>().To<Mapper>();
         }        
     }
 }
