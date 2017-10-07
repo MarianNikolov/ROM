@@ -10,7 +10,7 @@ namespace ROM.Web.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using Ninject.Extensions.Coventions;
+    using Ninject.Extensions.Conventions;
     using ROM.Data;
     using ROM.Data.Repository;
     using ROM.Data.SaveContext;
