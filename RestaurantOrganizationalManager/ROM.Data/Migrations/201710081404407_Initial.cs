@@ -12,7 +12,7 @@ namespace ROM.Data.Migrations
                 c => new
                     {
                         Id = c.Guid(nullable: false),
-                        Name = c.String(),
+                        Name = c.String(nullable: false, maxLength: 50),
                         Quantity = c.Int(nullable: false),
                         QuantityType = c.Int(nullable: false),
                         ProductType = c.Int(nullable: false),
@@ -48,13 +48,14 @@ namespace ROM.Data.Migrations
                 c => new
                     {
                         Id = c.Guid(nullable: false),
-                        Name = c.String(nullable: false),
+                        Name = c.String(nullable: false, maxLength: 50),
                         IsDeleted = c.Boolean(nullable: false),
                         DeletedOn = c.DateTime(),
                         CreatedOn = c.DateTime(),
                         ModifiedOn = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
+                .Index(t => t.Name, unique: true)
                 .Index(t => t.IsDeleted);
             
             CreateTable(
@@ -169,6 +170,7 @@ namespace ROM.Data.Migrations
             DropIndex("dbo.AspNetUsers", new[] { "RestaurantID" });
             DropIndex("dbo.AspNetUsers", new[] { "IsDeleted" });
             DropIndex("dbo.Restaurants", new[] { "IsDeleted" });
+            DropIndex("dbo.Restaurants", new[] { "Name" });
             DropIndex("dbo.Tables", new[] { "IsDeleted" });
             DropIndex("dbo.Tables", new[] { "RestaurantID" });
             DropIndex("dbo.Products", new[] { "IsDeleted" });

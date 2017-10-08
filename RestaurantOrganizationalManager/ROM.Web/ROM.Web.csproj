@@ -220,16 +220,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\AccountViewModels.cs" />
-    <Compile Include="ViewModels\ManageViewModels.cs" />
+    <Compile Include="ViewModels\Account\AccountViewModels.cs" />
+    <Compile Include="ViewModels\Manage\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\Home\StatisticViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\CSS\bootstrap.css" />
     <Content Include="Content\CSS\bootstrap.min.css" />
     <Content Include="Content\Images\LogoROM.png" />
     <Content Include="favicon.ico" />
+    <Content Include="Fonts\fontawesome-webfont.svg" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\CSS\Site.css" />
@@ -238,6 +240,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Fonts\fontawesome-webfont.eot" />
+    <Content Include="Fonts\fontawesome-webfont.ttf" />
+    <Content Include="Fonts\fontawesome-webfont.woff" />
+    <Content Include="Fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -283,6 +289,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_Statistic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -301,13 +308,21 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ROM.Common\ROM.Common.csproj">
+      <Project>{B7FE9C81-8D76-4398-A3AA-E7DA52353789}</Project>
+      <Name>ROM.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ROM.Data.Model\ROM.Data.Model.csproj">
-      <Project>{FB73679E-D55F-4F7E-8A71-09B7E69CEF0B}</Project>
+      <Project>{fb73679e-d55f-4f7e-8a71-09b7e69cef0b}</Project>
       <Name>ROM.Data.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\ROM.Data\ROM.Data.csproj">
       <Project>{850E0CFD-A6D9-4473-B9DC-C71DF091B07E}</Project>
       <Name>ROM.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ROM.Services.Data\ROM.Services.Data.csproj">
+      <Project>{98795918-f9b1-47f2-a752-2df2ceb84a8e}</Project>
+      <Name>ROM.Services.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\ROM.Web.Infrastructure\ROM.Web.Infrastructure.csproj">
       <Project>{35abf910-ccbc-4369-bd5b-e5ed30960f84}</Project>

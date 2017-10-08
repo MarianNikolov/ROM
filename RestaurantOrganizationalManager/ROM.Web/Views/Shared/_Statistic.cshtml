@@ -1,0 +1,54 @@
+﻿@using ROM.Web.ViewModels.Home
+@model StatisticViewModel
+@{
+    Layout = null;
+}
+
+<div class="row col-md-12">
+    <div class="col-md-4 hover-effect">
+        <div class="panel wrapper ">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-cutlery fa-5x statistic-icon"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge statistic">@Model.CountRestaurants</div>
+                        <div class="statistic">@Model.TextRestaurants!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 hover-effect">
+        <div class="panel wrapper ">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-cutlery fa-5x statistic-icon"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge statistic">@Model.CountTables</div>
+                        <div class="statistic">@Model.TextTables!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 hover-effect">
+        <div class="panel wrapper ">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-cutlery fa-5x statistic-icon"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge statistic">@Model.CountProducts</div>
+                        <div class="statistic">@Model.TextProducts!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
