@@ -73,12 +73,12 @@ namespace ROM.Web.App_Start
                  .BindDefaultInterface();
             });
 
-            //kernel.Bind(x =>
-            //{
-            //    x.FromAssemblyContaining(typeof(IService))
-            //     .SelectAllClasses()
-            //     .BindDefaultInterface();
-            //});
+            kernel.Bind(x =>
+            {
+                x.FromAssemblyContaining(typeof(IService))
+                 .SelectAllClasses()
+                 .BindDefaultInterface();
+            });
 
             kernel.Bind(typeof(System.Data.Entity.DbContext), typeof(DbContext)).To<DbContext>().InRequestScope();
             kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepository<>));
