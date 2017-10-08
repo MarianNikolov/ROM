@@ -75,13 +75,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbContext.cs" />
-    <Compile Include="Migrations\201710081230239_Initial.cs" />
-    <Compile Include="Migrations\201710081230239_Initial.Designer.cs">
-      <DependentUpon>201710081230239_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710081325186_ModelsValidations.cs" />
-    <Compile Include="Migrations\201710081325186_ModelsValidations.Designer.cs">
-      <DependentUpon>201710081325186_ModelsValidations.cs</DependentUpon>
+    <Compile Include="Migrations\201710081404407_Initial.cs" />
+    <Compile Include="Migrations\201710081404407_Initial.Designer.cs">
+      <DependentUpon>201710081404407_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,11 +97,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710081230239_Initial.resx">
-      <DependentUpon>201710081230239_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710081325186_ModelsValidations.resx">
-      <DependentUpon>201710081325186_ModelsValidations.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710081404407_Initial.resx">
+      <DependentUpon>201710081404407_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
