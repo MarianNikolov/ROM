@@ -75,6 +75,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstracts\BaseModel.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="ProductType.cs" />
+    <Compile Include="QuantityType.cs" />
     <Compile Include="Restaurant.cs" />
     <Compile Include="Table.cs" />
     <Compile Include="Contracts\IAuditable.cs" />

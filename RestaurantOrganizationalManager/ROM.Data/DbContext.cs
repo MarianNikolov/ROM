@@ -18,6 +18,9 @@ namespace ROM.Data
 
         public IDbSet<Table> Tables { get; set; }
 
+        public IDbSet<Product> Products { get; set; }
+        
+
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();

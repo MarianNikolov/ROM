@@ -10,6 +10,7 @@ namespace ROM.Data.Model.Abstracts
         public BaseModel()
         {
             this.Id = Guid.NewGuid();
+            this.CreatedOn = DateTime.UtcNow;
         }
 
         [Key]

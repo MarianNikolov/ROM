@@ -12,11 +12,8 @@ namespace ROM.Data.Model
 {
     public class User : IdentityUser, IAuditable, IDeletable
     {
-        private ICollection<Restaurant> restaurant;
-
         public User()
         {
-            this.restaurant = new HashSet<Restaurant>();
             this.CreatedOn = DateTime.Now;
         }
 
@@ -32,17 +29,9 @@ namespace ROM.Data.Model
         [DataType(DataType.DateTime)]
         public DateTime? ModifiedOn { get; set; }
 
-        public virtual ICollection<Restaurant> Restaurants
-        {
-            get
-            {
-                return this.restaurant;
-            }
-            set
-            {
-                this.restaurant = value;
-            }
-        }
+        public Guid? RestaurantID { get; set; }
+
+        public virtual Restaurant Restaurant { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
