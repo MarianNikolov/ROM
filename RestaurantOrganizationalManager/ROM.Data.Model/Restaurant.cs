@@ -1,4 +1,5 @@
-﻿using ROM.Data.Model.Abstracts;
+﻿using ROM.Common;
+using ROM.Data.Model.Abstracts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -18,6 +19,9 @@ namespace ROM.Data.Model
         }
 
         [Required]
+        [Index(IsUnique = true)]
+        [MinLength(RestaurantConstants.RestaurantNameMinLength)]
+        [MaxLength(RestaurantConstants.RestaurantNameMaxLength)]
         public string Name { get; set; }
 
         public virtual ICollection<Table> Tables

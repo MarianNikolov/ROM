@@ -89,5 +89,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ROM.Common\ROM.Common.csproj">
+      <Project>{B7FE9C81-8D76-4398-A3AA-E7DA52353789}</Project>
+      <Name>ROM.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

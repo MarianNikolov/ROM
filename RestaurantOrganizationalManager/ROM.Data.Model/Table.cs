@@ -1,6 +1,7 @@
 ﻿using ROM.Data.Model.Abstracts;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ROM.Data.Model
 {
@@ -11,6 +12,7 @@ namespace ROM.Data.Model
         public Table()
         {
             this.products = new HashSet<Product>();
+            this.IsFree = true;
         }
 
         public virtual ICollection<Product> Products
@@ -25,7 +27,7 @@ namespace ROM.Data.Model
             }
         }
 
-
+        [Required]
         public int Number { get; set; }
 
         public bool IsFree { get; set; }
