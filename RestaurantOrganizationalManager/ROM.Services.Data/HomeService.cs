@@ -1,11 +1,7 @@
 ﻿using ROM.Data.Model;
 using ROM.Data.Repository;
 using ROM.Services.Data.Contracts;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ROM.Services.Data
 {

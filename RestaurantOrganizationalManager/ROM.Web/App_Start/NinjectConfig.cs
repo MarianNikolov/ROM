@@ -3,18 +3,17 @@
 
 namespace ROM.Web.App_Start
 {
-    using System;
-    using System.Web;
-
+    using AutoMapper;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
     using Ninject;
-    using Ninject.Web.Common;
     using Ninject.Extensions.Conventions;
+    using Ninject.Web.Common;
     using ROM.Data;
     using ROM.Data.Repository;
     using ROM.Data.SaveContext;
-    using AutoMapper;
+    using ROM.Services.Data.Contracts;
+    using System;
+    using System.Web;
 
     public static class NinjectConfig 
     {
