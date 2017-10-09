@@ -8,6 +8,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+    @Styles.Render("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css")
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -51,5 +52,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    @RenderSection("tableScript", required: false)
 </body>
 </html>

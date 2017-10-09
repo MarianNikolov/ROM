@@ -231,7 +231,9 @@
   <ItemGroup>
     <Content Include="Content\CSS\bootstrap.css" />
     <Content Include="Content\CSS\bootstrap.min.css" />
+    <Content Include="Content\Images\FreeTable.png" />
     <Content Include="Content\Images\LogoROM.png" />
+    <Content Include="Content\Images\NotFreeTable.png" />
     <Content Include="favicon.ico" />
     <Content Include="Fonts\fontawesome-webfont.svg" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
