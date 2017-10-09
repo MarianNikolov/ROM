@@ -10,5 +10,6 @@ namespace ROM.Common
     {
         public const int RestaurantNameMinLength = 2;
         public const int RestaurantNameMaxLength = 50;
+        public const string ErrorMessage = "Name must be between 2 and 50 characters!";
     }
 }

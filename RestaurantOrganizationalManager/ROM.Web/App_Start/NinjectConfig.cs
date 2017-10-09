@@ -79,7 +79,7 @@ namespace ROM.Web.App_Start
                  .BindDefaultInterface();
             });
 
-            kernel.Bind(typeof(System.Data.Entity.DbContext), typeof(DbContext)).To<DbContext>().InRequestScope();
+            kernel.Bind(typeof(System.Data.Entity.DbContext), typeof(RomDbContext)).To<RomDbContext>().InRequestScope();
             kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepository<>));
             kernel.Bind<ISaveContext>().To<SaveContext>();
             kernel.Bind<IMapper>().To<Mapper>();

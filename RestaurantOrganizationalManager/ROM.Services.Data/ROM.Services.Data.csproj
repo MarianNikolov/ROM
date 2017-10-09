@@ -30,7 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,11 +50,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IHomeService.cs" />
+    <Compile Include="Contracts\IRestaurantService.cs" />
     <Compile Include="Contracts\IService.cs" />
+    <Compile Include="Contracts\IUserRoleService.cs" />
     <Compile Include="HomeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestaurantService.cs" />
+    <Compile Include="UserRoleService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ROM.Common\ROM.Common.csproj">
+      <Project>{B7FE9C81-8D76-4398-A3AA-E7DA52353789}</Project>
+      <Name>ROM.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ROM.Data.Model\ROM.Data.Model.csproj">
       <Project>{fb73679e-d55f-4f7e-8a71-09b7e69cef0b}</Project>
       <Name>ROM.Data.Model</Name>
@@ -54,6 +71,10 @@
       <Project>{850e0cfd-a6d9-4473-b9dc-c71df091b07e}</Project>
       <Name>ROM.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

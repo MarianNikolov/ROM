@@ -1,0 +1,23 @@
+﻿@model ROM.Web.ViewModels.Restaurant.RegisterRestaurantViewModel
+
+<div class="jumbotron">
+    <h1>Register restaurant</h1>
+    
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>Restaurant</legend>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+    }
+</div>

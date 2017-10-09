@@ -38,7 +38,7 @@ namespace ROM.Web.Controllers
         }
 
         [ChildActionOnly]
-        //[OutputCache(Duration = WebConstants.HomePageCacheDuration)]
+        [OutputCache(Duration = WebConstants.HomePageCacheDuration)]
         public ActionResult Statistic()
         {
             var countOfAllRestaurants = this.homeService.GetAllRestaurants().Count();
@@ -47,7 +47,7 @@ namespace ROM.Web.Controllers
 
             StatisticViewModel model = new StatisticViewModel()
             {
-                CountRestaurants = countOfAllRestaurants,
+                CountRestaurants =  countOfAllRestaurants,
                 CountTables = countOfAllTables,
                 CountProducts = countOfAllProducts,
                 TextRestaurants = HomePageConstants.RegisteredRestaurants,

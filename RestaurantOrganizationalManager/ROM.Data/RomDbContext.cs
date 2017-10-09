@@ -7,9 +7,9 @@ using ROM.Data.Model;
 
 namespace ROM.Data
 {
-    public class DbContext : IdentityDbContext<User>
+    public class RomDbContext : IdentityDbContext<User>
     {
-        public DbContext()
+        public RomDbContext()
             : base("LocalConnection", throwIfV1Schema: false)
         {
         }
@@ -47,9 +47,9 @@ namespace ROM.Data
             }
         }
 
-        public static DbContext Create()
+        public static RomDbContext Create()
         {
-            return new DbContext();
+            return new RomDbContext();
         }
     }
 }

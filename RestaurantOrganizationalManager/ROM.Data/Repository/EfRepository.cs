@@ -1,20 +1,20 @@
-﻿using ROM.Data.Model.Contracts;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using ROM.Data.Model;
+using ROM.Data.Model.Contracts;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ROM.Data.Repository
 {
     public class EfRepository<T> : IEfRepository<T>
         where T : class, IDeletable
     {
-        private readonly DbContext context;
+        private readonly RomDbContext context;
 
-        public EfRepository(DbContext context)
+        public EfRepository(RomDbContext context)
         {
             this.context = context;
         }

@@ -8,7 +8,7 @@ namespace ROM.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    public sealed class Configuration : DbMigrationsConfiguration<DbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<RomDbContext>
     {
         private const string AdministratorUserName = "admin@abv.com";
         private const string AdministratorPassword = "123456";
@@ -19,14 +19,14 @@ namespace ROM.Data.Migrations
             this.AutomaticMigrationDataLossAllowed = false;
         }
 
-        protected override void Seed(DbContext context)
+        protected override void Seed(RomDbContext context)
         {
             this.SeedData(context);
             this.SeedAll(context);
             base.Seed(context);
         }
 
-        private void SeedAll(DbContext context)
+        private void SeedAll(RomDbContext context)
         {
             if (!context.Restaurants.Any())
             {
@@ -127,7 +127,7 @@ namespace ROM.Data.Migrations
             }
         }
 
-        private void SeedData(DbContext context)
+        private void SeedData(RomDbContext context)
         {
             if (!context.Roles.Any())
             {
