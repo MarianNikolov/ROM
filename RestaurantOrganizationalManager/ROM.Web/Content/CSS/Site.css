@@ -86,6 +86,10 @@ textarea {
     -webkit-animation-iteration-count: 1;
 }
 
-.navigation-animation {
-
+.table-img-container {
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-iteration-count: 1;
 }
+
+

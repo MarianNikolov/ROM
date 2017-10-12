@@ -9,7 +9,7 @@ namespace ROM.Web.ViewModels.Restaurant
 {
     public class RegisterRestaurantViewModel
     {
-        [Required(ErrorMessage = "Name is Required")]
+        [Required(ErrorMessage = RestaurantConstants.NameIsRequired)]
         [MinLength(RestaurantConstants.RestaurantNameMinLength, ErrorMessage = RestaurantConstants.ErrorMessage)]
         [MaxLength(RestaurantConstants.RestaurantNameMaxLength, ErrorMessage = RestaurantConstants.ErrorMessage)]
         public string Name { get; set; }

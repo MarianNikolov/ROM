@@ -63,6 +63,19 @@ namespace ROM.Data.Migrations
 
                     context.Restaurants.Add(restaurant);
 
+
+                    for (int j = 1; j <= 8; j++)
+                    {
+                        var table = new Table()
+                        {
+                            Number = j,
+                            CreatedOn = DateTime.Now
+                        };
+
+                        context.Tables.Add(table);
+                        restaurant.Tables.Add(table);
+                    }
+                    
                     userManager.Create(user, userPasswords[i]);
                     userManager.AddToRole(user.Id, roleName);
                 }

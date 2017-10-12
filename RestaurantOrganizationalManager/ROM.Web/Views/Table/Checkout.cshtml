@@ -1,0 +1,49 @@
+﻿@model ROM.Web.ViewModels.Table.CheckoutViewModel
+
+<div class="row col-md-12 statistic-partial">
+    <div class="col-md-12 hover-effect first-statistic animated pulse">
+        <div class="panel wrapper">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-cutlery fa-5x statistic-icon"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge statistic">@Model.Bill</div>
+                        <div class="statistic">Due amount</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.ActionLink("The Order is finishet. The table is free. Go to restaurant menu", "Index", "Restaurant")
+
+<div class="container ">
+    <div class="container">
+        <h2>Invoice</h2>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Product type</th>
+                    <th>Quantity</th>
+                    <th>Product type</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            @foreach (var product in Model.Products)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.ProductType</td>
+                    <td>@product.Quantity @product.QuantityType.ToString().ToLower()</td>
+                    <td>@product.ProductType</td>
+                    <td>@product.Price</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

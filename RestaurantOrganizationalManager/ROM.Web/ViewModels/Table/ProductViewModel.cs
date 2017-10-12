@@ -1,19 +1,16 @@
 ﻿using ROM.Common;
-using ROM.Data.Model.Abstracts;
+using ROM.Data.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
 
-namespace ROM.Data.Model
+namespace ROM.Web.ViewModels.Table
 {
-    public class Product : BaseModel
+    public class ProductViewModel
     {
-        private ICollection<Table> tables;
-
-        public Product()
-        {
-            this.tables = new HashSet<Table>();
-        }
+        public Guid Id { get; set; }
 
         [Required(ErrorMessage = ProductConstants.NameIsRequired)]
         [MinLength(ProductConstants.ProductNameMinLength)]
@@ -29,17 +26,5 @@ namespace ROM.Data.Model
 
         [Required(ErrorMessage = ProductConstants.PriceIsRequired)]
         public decimal Price { get; set; }
-        
-        public virtual ICollection<Table> Tables
-        {
-            get
-            {
-                return this.tables;
-            }
-            set
-            {
-                this.tables = value;
-            }
-        }
     }
 }

@@ -45,6 +45,7 @@
     <Compile Include="RestaurantConstants.cs" />
     <Compile Include="RoleConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TableConstants.cs" />
     <Compile Include="WebConstants.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

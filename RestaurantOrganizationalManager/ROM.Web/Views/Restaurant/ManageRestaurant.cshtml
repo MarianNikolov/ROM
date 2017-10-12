@@ -1,56 +1,37 @@
-﻿<div class="jumbotron">
-    <h1 page-title animated lightSpeedIn>Manage restaurant</h1>
+﻿@using ROM.Web.ViewModels.Restaurant
+@model RestaurantViewModel
+
+<div class="jumbotron">
+    <h1 class="page-title animated lightSpeedIn">@Model.Name</h1>
 
 </div>
 
-<style>
-    .table-img-container {
-        -webkit-vendor-animation-duration: 10s;
-        -webkit-vendor-animation-delay: 1s;
-        -webkit-vendor-animation-iteration-count: infinite;
-    }
-</style>
-
 <div class="col-md-12">
 
-    <div class="col-md-3 text-center table-img-container">
-        <a href="@Url.Action("Index", "Home")">
-            <img class="table-img" src="~/Content/Images/FreeTable.png" alt="Free table" />
-        </a>
-    </div>
+    @foreach (var table in Model.Tables)
+    {
+        <div class="col-md-3 text-center table-img-container">
+            <img class="table-img" src="@Url.Content(table.ImgUrl)" />
+            <h3>@table.Number</h3>
+            
+            @if (table.IsFree)
+            {
+                @Html.ActionLink("Place customers", "Index", "Table", new { restaurantName = Model.Name, tableId = table.Id }, new { @class = "btn btn-success btn-block" })
+            }
+            else
+            {
+                @Html.ActionLink("Manage", "Index", "Table", new { restaurantName = Model.Name, tableId = table.Id }, new { @class = "btn btn-primary btn-block" })
+            }
 
-    <div class="col-md-3 text-center table-img-container">
-        <a href="@Url.Action("Index", "Home")">
-            <img class="table-img" src="~/Content/Images/NotFreeTable.png" alt="Not free table" />
-        </a>
-    </div>
-
-
-    <div class="col-md-3 text-center table-img-container">
-        <a href="@Url.Action("Index", "Home")">
-            <img class="table-img" src="~/Content/Images/FreeTable.png" alt="Free table" />
-        </a>
-    </div>
-
-    <div class="col-md-3 text-center table-img-container">
-        <a href="@Url.Action("Index", "Home")">
-            <img class="table-img" src="~/Content/Images/NotFreeTable.png" alt="Not free table" />
-        </a>
-    </div>
-
+        </div>
+    }
 </div>
 <div class="clearfix"></div>
 
 
-
-
-
 @section tableScript {
-    
-
     <script>
         $("body").on("mouseover", ".table-img-container", function (e) {
-            console.log(5);
             var animationName = "animated pulse";
             var animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 
@@ -58,7 +39,6 @@
                 $(this).removeClass(animationName)
             });
         });
+
     </script>
-
-
 }

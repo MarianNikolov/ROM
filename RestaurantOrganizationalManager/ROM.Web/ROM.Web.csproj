@@ -214,10 +214,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\ViewEnginesConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\RestaurantController.cs" />
+    <Compile Include="Controllers\Account\AccountController.cs" />
+    <Compile Include="Controllers\Home\HomeController.cs" />
+    <Compile Include="Controllers\Manage\ManageController.cs" />
+    <Compile Include="Controllers\Restaurant\RestaurantController.cs" />
+    <Compile Include="Controllers\TableController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -227,6 +228,11 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Home\StatisticViewModel.cs" />
     <Compile Include="ViewModels\Restaurant\RegisterRestaurantViewModel.cs" />
+    <Compile Include="ViewModels\Restaurant\RestaurantViewModel.cs" />
+    <Compile Include="ViewModels\Restaurant\TableViewModel.cs" />
+    <Compile Include="ViewModels\Table\CheckoutViewModel.cs" />
+    <Compile Include="ViewModels\Table\ProductViewModel.cs" />
+    <Compile Include="ViewModels\Table\TableDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\CSS\bootstrap.css" />
@@ -296,9 +302,13 @@
     <Content Include="Views\Shared\_Statistic.cshtml" />
     <Content Include="Views\Restaurant\ManageRestaurant.cshtml" />
     <Content Include="Views\Restaurant\RegisterRestaurant.cshtml" />
+    <Content Include="Views\Table\Index.cshtml" />
+    <Content Include="Views\Shared\_AddProductToTable.cshtml" />
+    <Content Include="Views\Table\Checkout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\Table\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Fonts\glyphicons-halflings-regular.woff" />

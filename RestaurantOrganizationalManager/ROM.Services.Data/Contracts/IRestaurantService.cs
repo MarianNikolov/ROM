@@ -11,6 +11,6 @@ namespace ROM.Services.Data.Contracts
     {
         void CreateRestaurant(string userID, string restaurantName);
 
-        Restaurant GetRestaurantManagerByID(string userID);
+        Restaurant GetRestaurantByManagerID(string userID);
     }
 }
