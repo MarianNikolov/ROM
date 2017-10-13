@@ -11,7 +11,7 @@ namespace ROM.Data.Migrations
     public sealed class Configuration : DbMigrationsConfiguration<RomDbContext>
     {
         private const string AdministratorUserName = "admin@abv.com";
-        private const string AdministratorPassword = "123456";
+        private const string AdministratorPassword = "111111";
 
         public Configuration()
         {
@@ -32,7 +32,7 @@ namespace ROM.Data.Migrations
             {
                 var roleName = "Manager";
                 var userNames = new List<string>() { "aaa@abv.bg", "bbb@abv.bg", "ccc@abv.bg", };
-                var userPasswords = new List<string>() { "aaaaaa", "bbbbbb", "cccccc", };
+                var usersPasswords = "111111";
                 var restaurantNames = new List<string>() { "Cosmos", "Chef's", "Wok to Walk" };
 
                 var roleStore = new RoleStore<IdentityRole>(context);
@@ -76,7 +76,7 @@ namespace ROM.Data.Migrations
                         restaurant.Tables.Add(table);
                     }
                     
-                    userManager.Create(user, userPasswords[i]);
+                    userManager.Create(user, usersPasswords);
                     userManager.AddToRole(user.Id, roleName);
                 }
 

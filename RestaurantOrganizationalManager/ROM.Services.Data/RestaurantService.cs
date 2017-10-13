@@ -30,6 +30,11 @@ namespace ROM.Services.Data
             this.saveContext = saveContext;
         }
 
+        public IQueryable<Restaurant> GetAll()
+        {
+            return this.restaurantRepository.All;
+        }
+
         public void CreateRestaurant(string userID, string restaurantName, int countOfTables)
         {
             var user = this.userRepository.All

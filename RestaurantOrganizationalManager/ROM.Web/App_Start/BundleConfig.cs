@@ -24,9 +24,13 @@ namespace ROM.Web
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jslibs").Include(
+                      "~/Scripts/gridmvc.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/CSS/bootstrap.css",
-                      "~/Content/CSS/site.css"));
+                      "~/Content/CSS/site.css",
+                      "~/Content/CSS/Gridmvc.css"));
         }
     }
 }

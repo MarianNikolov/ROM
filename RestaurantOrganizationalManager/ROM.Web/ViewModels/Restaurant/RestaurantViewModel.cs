@@ -10,7 +10,7 @@ namespace ROM.Web.ViewModels.Restaurant
 {
     public class RestaurantViewModel
     {
-        public List<TableViewModel> Tables { get; set; }
+        public ICollection<TableViewModel> Tables { get; set; }
 
         [Required]
         [MinLength(RestaurantConstants.RestaurantNameMinLength)]

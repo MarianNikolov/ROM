@@ -9,6 +9,8 @@ namespace ROM.Services.Data.Contracts
 {
     public interface IRestaurantService
     {
+        IQueryable<Restaurant> GetAll();
+
         void CreateRestaurant(string userID, string restaurantName, int countOfTables);
 
         Restaurant GetRestaurantByManagerID(string userID);

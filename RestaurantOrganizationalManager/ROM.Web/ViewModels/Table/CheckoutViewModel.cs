@@ -9,6 +9,6 @@ namespace ROM.Web.ViewModels.Table
     {
         public decimal Bill { get; set; }
 
-        public List<ProductViewModel> Products { get; set; }
+        public ICollection<ProductViewModel> Products { get; set; }
     }
 }

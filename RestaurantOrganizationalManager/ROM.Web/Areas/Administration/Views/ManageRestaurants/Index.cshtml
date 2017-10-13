@@ -1,0 +1,12 @@
+﻿@using GridMvc.Html
+@model IEnumerable<ROM.Web.Areas.Administration.ViewModels.ManageRestaurantsViewModel>
+
+<div class="jumbotron">
+    <h1 class="page-title animated lightSpeedIn">Administration</h1>
+    <h3>Manage all restaurants in application!</h3>
+</div>
+
+<div class="text-center">
+    @Html.Grid(Model).AutoGenerateColumns().Sortable().Filterable().WithPaging(3)
+</div>
+
