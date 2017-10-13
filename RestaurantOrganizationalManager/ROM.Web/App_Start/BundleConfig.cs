@@ -29,8 +29,10 @@ namespace ROM.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/CSS/bootstrap.css",
-                      "~/Content/CSS/site.css",
-                      "~/Content/CSS/Gridmvc.css"));
+                      "~/Content/CSS/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/cssgrid").Include(
+                      "~/Content/Gridmvc.css"));
         }
     }
 }

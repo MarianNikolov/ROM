@@ -23,24 +23,21 @@ namespace ROM.Services.Data
             this.saveContext = saveContext;
         }
 
-        public IQueryable<Table> GetTablesByRestaurantID(Guid? restaurantId)
-        {
-            if (restaurantId == null)
-            {
-                throw new NullReferenceException();
-            }
-
-            return this.tableRepository.All.Where(t => t.RestaurantID == restaurantId);
-        }
-
-        public IQueryable<Table> GetTablesByID(Guid? tableId)
+        public Table GetTableByID(Guid? tableId)
         {
             if (tableId == null)
             {
                 throw new NullReferenceException();
             }
 
-            return this.tableRepository.All.Where(t => t.Id == tableId);
+            var tableResult = this.tableRepository.All.FirstOrDefault(t => t.Id == tableId);
+
+            if (tableResult == null)
+            {
+                throw new NullReferenceException();
+            }
+
+            return tableResult;
         }
 
         public decimal GetBill(Table table)

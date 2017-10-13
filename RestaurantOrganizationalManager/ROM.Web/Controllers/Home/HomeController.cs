@@ -1,10 +1,7 @@
 ﻿using ROM.Common;
 using ROM.Services.Data.Contracts;
 using ROM.Web.ViewModels.Home;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ROM.Web.Controllers
@@ -38,7 +35,7 @@ namespace ROM.Web.Controllers
         }
 
         [ChildActionOnly]
-        //[OutputCache(Duration = WebConstants.HomePageCacheDuration)]
+        [OutputCache(Duration = WebConstants.HomePageCacheDuration)]
         public ActionResult Statistic()
         {
             var countOfAllRestaurants = this.homeService.GetAllRestaurants().Count();

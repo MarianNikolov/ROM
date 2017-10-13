@@ -1,4 +1,8 @@
-﻿@using GridMvc.Html
+﻿@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using GridMvc.Html
 @model IEnumerable<ROM.Web.Areas.Administration.ViewModels.ManageRestaurantsViewModel>
 
 <div class="jumbotron">
@@ -7,6 +11,6 @@
 </div>
 
 <div class="text-center">
-    @Html.Grid(Model).AutoGenerateColumns().Sortable().Filterable().WithPaging(3)
+    @Html.Grid(Model).AutoGenerateColumns().Sortable().Filterable().WithPaging(4)
 </div>
 

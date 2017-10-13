@@ -1,5 +1,6 @@
 ﻿using ROM.Common;
 using ROM.Data.Model;
+using ROM.Web.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +9,7 @@ using System.Web;
 
 namespace ROM.Web.ViewModels.Table
 {
-    public class ProductViewModel
+    public class ProductViewModel : IMapFrom<Product>
     {
         public Guid Id { get; set; }
 

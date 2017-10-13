@@ -7,6 +7,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/bundles/cssgrid")
     @Styles.Render("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
     @Styles.Render("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css")
 </head>
@@ -20,9 +21,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="@Url.Action("Index", "Home")">
-                    <img class="navbar-brand logo"  src="~/Content/Images/LogoROM.png" alt="ROM" />
+                    <img class="navbar-brand logo" src="~/Content/Images/LogoROM.png" alt="ROM" />
                 </a>
-               @* @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -40,7 +40,7 @@
                     @{
                         if (this.User.Identity.IsAuthenticated)
                         {
-<li>@Html.ActionLink("Restaurant", "Index", "Restaurant")</li>
+                            <li>@Html.ActionLink("Restaurant", "Index", "Restaurant", new { area = string.Empty }, null)</li>
                         }
                     }
                 </ul>

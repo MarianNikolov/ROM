@@ -6,9 +6,7 @@ namespace ROM.Services.Data.Contracts
 {
     public interface ITableService
     {
-        IQueryable<Table> GetTablesByRestaurantID(Guid? restaurantId);
-
-        IQueryable<Table> GetTablesByID(Guid? tableId);
+        Table GetTableByID(Guid? tableId);
 
         decimal GetBill(Table table);
 

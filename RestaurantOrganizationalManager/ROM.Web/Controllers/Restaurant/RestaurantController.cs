@@ -1,14 +1,9 @@
-﻿using ROM.Common;
+﻿using Microsoft.AspNet.Identity;
 using ROM.Services.Data.Contracts;
+using ROM.Web.Infrastructure;
 using ROM.Web.ViewModels.Restaurant;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using ROM.Data.Model;
-using ROM.Web.ViewModels.Table;
 
 namespace ROM.Web.Controllers
 {
@@ -47,6 +42,7 @@ namespace ROM.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult RegisterRestaurant(RegisterRestaurantViewModel restaurantModel)
         {
             if (!ModelState.IsValid)
@@ -66,32 +62,15 @@ namespace ROM.Web.Controllers
         {
             var userID = this.User.Identity.GetUserId();
             var restaurant = this.restaurantService.GetRestaurantByManagerID(userID);
-
-            var tables = this.tableService.GetTablesByRestaurantID(restaurant.Id)
+            
+            var tables = restaurant.Tables.AsQueryable().MapTo<TableViewModel>()
                 .OrderBy(t => t.Number)
                 .ToList();
-
-            var tablesViewModel = new List<TableViewModel>();
-
-            // AUTO MAPPER
-            for (int i = 0; i < tables.Count(); i++)
-            {
-                // ???
-                var imgUrl = tables[i].IsFree ? TableConstants.FreeTableImgUrl : TableConstants.NotFreeTableImgUrl;
-
-                tablesViewModel.Add(new TableViewModel()
-                {
-                    Id = tables[i].Id,
-                    IsFree = tables[i].IsFree,
-                    Number = tables[i].Number,
-                    Products = new List<ProductViewModel>(),
-                    ImgUrl = imgUrl,
-                });
-            }
+           
             var restaurantViewModel = new RestaurantViewModel()
             {
                 Name = restaurant.Name,
-                Tables = tablesViewModel
+                Tables = tables
             };
 
             return View(restaurantViewModel);

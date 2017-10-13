@@ -5,6 +5,7 @@
     
     @using (Html.BeginForm())
     {
+        @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
         <fieldset>
             <legend>Enter name and count of tables in your restaurant!</legend>

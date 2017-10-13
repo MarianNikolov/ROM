@@ -1,9 +1,9 @@
 ﻿using ROM.Services.Data.Contracts;
+using ROM.Web.Infrastructure;
 using ROM.Web.ViewModels.Table;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Net.Http;
 using System.Web.Mvc;
 
 namespace ROM.Web.Controllers
@@ -27,59 +27,32 @@ namespace ROM.Web.Controllers
                 throw new NullReferenceException();
             }
 
-            var products = this.productService.GetAll().ToList();
-            var table = this.tableService.GetTablesByID(tableId).FirstOrDefault();
+            var table = this.tableService.GetTableByID(tableId);
+            var addedProductsViewModel = table.Products.AsQueryable().MapTo<ProductViewModel>().ToList();
+            var allProductsViewModel = this.productService.GetAll().MapTo<ProductViewModel>().ToList();
 
             if (table.Products.Count == 0 && table.IsFree)
             {
                 this.tableService.ChangeTableStatus(table);
             }
 
-            /// AUTOMAPPER
-            var productsViewModel = new List<ProductViewModel>();
-            var addedProductsViewModel = new List<ProductViewModel>();
-            foreach (var product in products)
-            {
-                productsViewModel.Add(new ProductViewModel()
-                {
-                    Id = product.Id,
-                    Name = product.Name,
-                    Price = product.Price,
-                    ProductType = product.ProductType,
-                    Quantity = product.Quantity,
-                    QuantityType = product.QuantityType
-                });
-            }
-            foreach (var product in table.Products)
-            {
-                addedProductsViewModel.Add(new ProductViewModel()
-                {
-                    Id = product.Id,
-                    Name = product.Name,
-                    Price = product.Price,
-                    ProductType = product.ProductType,
-                    Quantity = product.Quantity,
-                    QuantityType = product.QuantityType
-                });
-            }
             var tablesDetailsViewModel = new TableDetailsViewModel()
             {
                 Id = table.Id,
                 Number = table.Number,
                 RestaurantName = restaurantName,
                 AddedProducts = addedProductsViewModel,
-                Products = productsViewModel
+                Products = allProductsViewModel
             };
 
             return this.View(tablesDetailsViewModel);
         }
 
-
         public ActionResult AddProductToTable(Guid? productId, Guid? tableId)
         {
             if (!this.Request.IsAjaxRequest())
             {
-                throw new Exception();
+                throw new HttpRequestException();
             }
 
             if (productId == null || tableId == null)
@@ -88,7 +61,7 @@ namespace ROM.Web.Controllers
             }
 
             var product = this.productService.GetAll().Where(p => p.Id == productId).FirstOrDefault();
-            var table = this.tableService.GetTablesByID(tableId).FirstOrDefault();
+            var table = this.tableService.GetTableByID(tableId);
 
             if (product == null || table == null)
             {
@@ -96,18 +69,8 @@ namespace ROM.Web.Controllers
             }
 
             this.tableService.AddProductToTable(product, table);
-
-            // AUTOMMAPER
-            var productViewModel = new ProductViewModel()
-            {
-                Id = product.Id,
-                Name = product.Name,
-                Price = product.Price,
-                ProductType = product.ProductType,
-                Quantity = product.Quantity,
-                QuantityType = product.QuantityType
-            };
-
+            var productViewModel = AutoMapperConfig.Configuration.CreateMapper().Map<ProductViewModel>(product);
+                
             return this.PartialView("_AddProductToTable", productViewModel);
         }
 
@@ -118,7 +81,7 @@ namespace ROM.Web.Controllers
                 throw new NullReferenceException();
             }
 
-            var table = this.tableService.GetTablesByID(tableId).FirstOrDefault();
+            var table = this.tableService.GetTableByID(tableId);
 
             if (table == null)
             {
@@ -126,21 +89,8 @@ namespace ROM.Web.Controllers
             }
 
             var bill = this.tableService.GetBill(table);
+            var productsViewModel = table.Products.AsQueryable().MapTo<ProductViewModel>().ToList();
 
-            // AUTOMAPPER 
-            var productsViewModel = new List<ProductViewModel>();
-            foreach (var product in table.Products)
-            {
-                productsViewModel.Add(new ProductViewModel()
-                {
-                    Id = product.Id,
-                    Name = product.Name,
-                    Price = product.Price,
-                    ProductType = product.ProductType,
-                    Quantity = product.Quantity,
-                    QuantityType = product.QuantityType
-                });
-            }
             var checkoutViewModel = new CheckoutViewModel()
             {
                 Bill = bill,

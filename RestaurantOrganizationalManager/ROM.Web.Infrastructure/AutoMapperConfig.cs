@@ -8,17 +8,16 @@ namespace ROM.Web.Infrastructure
 {
     public class AutoMapperConfig
     {
-        public static IMapperConfigurationExpression Configuration { get; private set; }
+        public static MapperConfiguration Configuration { get; private set; }
 
         public void Execute(Assembly assembly)
         {
-            Mapper.Initialize(
-                cfg =>
+           Configuration = new MapperConfiguration(
+               cfg =>
                 {
                     var types = assembly.GetExportedTypes();
                     LoadStandardMappings(types, cfg);
                     LoadCustomMappings(types, cfg);
-                    Configuration = cfg;
                 });
         }
 

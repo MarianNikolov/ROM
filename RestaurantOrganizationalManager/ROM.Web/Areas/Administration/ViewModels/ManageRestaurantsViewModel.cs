@@ -1,16 +1,14 @@
-﻿using GridMvc.DataAnnotations;
-using ROM.Common;
-using ROM.Web.ViewModels.Restaurant;
+﻿using AutoMapper;
+using GridMvc.DataAnnotations;
+using ROM.Data.Model;
+using ROM.Web.Infrastructure;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web;
 
 namespace ROM.Web.Areas.Administration.ViewModels
 {
     [GridTable(PagingEnabled = true, PageSize = 4)]
-    public class ManageRestaurantsViewModel
+    public class ManageRestaurantsViewModel : IMapFrom<Restaurant>, IHaveCustomMappings
     {
         [GridHiddenColumn]
         public Guid RestaurantID { get; set; }
@@ -19,9 +17,18 @@ namespace ROM.Web.Areas.Administration.ViewModels
         public string Name { get; set; }
 
         [GridColumn(Title = "Count of tables", SortEnabled = true, FilterEnabled = true)]
-        public int CountOfRestaurants{ get; set; }
+        public int CountOfTables { get; set; }
 
         [GridColumn(Title = "Manager", SortEnabled = true, FilterEnabled = true)]
         public string ManagerName { get; set; }
+
+        public void CreateMappings(IMapperConfigurationExpression configuration)
+        {
+            configuration.CreateMap<ROM.Data.Model.Restaurant, ManageRestaurantsViewModel>()
+                .ForMember(t => t.RestaurantID, c => c.MapFrom(tb => tb.Id))
+                .ForMember(t => t.Name, c => c.MapFrom(tb => tb.Name))
+                .ForMember(t => t.CountOfTables, c => c.MapFrom(tb => tb.Tables.Count))
+                .ForMember(t => t.ManagerName, c => c.MapFrom(tb => tb.Users.Select(u => u.UserName).FirstOrDefault()));
+        }
     }
 }
