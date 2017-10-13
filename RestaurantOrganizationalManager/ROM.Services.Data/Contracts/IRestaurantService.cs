@@ -9,7 +9,7 @@ namespace ROM.Services.Data.Contracts
 {
     public interface IRestaurantService
     {
-        void CreateRestaurant(string userID, string restaurantName);
+        void CreateRestaurant(string userID, string restaurantName, int countOfTables);
 
         Restaurant GetRestaurantByManagerID(string userID);
     }

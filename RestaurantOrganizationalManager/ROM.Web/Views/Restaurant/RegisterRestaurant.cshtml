@@ -7,14 +7,24 @@
     {
         @Html.ValidationSummary(true)
         <fieldset>
-            <legend>Restaurant</legend>
+            <legend>Enter name and count of tables in your restaurant!</legend>
             <div class="editor-label">
                 @Html.LabelFor(model => model.Name)
             </div>
+            
             <div class="editor-field">
                 @Html.EditorFor(model => model.Name)
                 @Html.ValidationMessageFor(model => model.Name)
             </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CountOfTables)
+            </div>
+             <div class="editor-field">
+                @Html.EditorFor(model => model.CountOfTables)
+                @Html.ValidationMessageFor(model => model.CountOfTables)
+            </div>
+
             <p>
                 <input type="submit" value="Create" />
             </p>

@@ -2,17 +2,21 @@
 
 <div class="jumbotron">
     <h1 class="page-title animated lightSpeedIn">@Model.RestaurantName - table @Model.Number</h1>
+    <div class="container text-right">
+        @Html.ActionLink("Go to restaurant menu", "Index", "Restaurant", null, new
+   {
+       @class = "btn btn-succes btn-lg"
+   })
+    </div>
 </div>
 
-
 <div class="col-md-12">
-
     @foreach (var product in Model.Products)
     {
         <div class="col-md-4 text-center table-img-container">
             <p>@product.Name, @product.Quantity @product.ProductType, @product.Price  </p>
 
-            @Ajax.ActionLink("Add to table", "AddProductToTable", "Table", 
+            @Ajax.ActionLink("Add to table", "AddProductToTable", "Table",
            new { productId = product.Id, tableId = Model.Id },
            new AjaxOptions()
            {
@@ -28,7 +32,6 @@
 </div>
 <div class="clearfix"></div>
 
-
 <div class="container ">
     <div class="container">
         <h2>Ordered products</h2>
@@ -38,16 +41,28 @@
                     <th>Name</th>
                     <th>Product type</th>
                     <th>Quantity</th>
-                    <th>Product type</th>
                     <th>Price</th>
                 </tr>
             </thead>
 
             <tbody id="product-container">
-                
+
+                @foreach (var product in Model.AddedProducts)
+                {
+                    <tr>
+                        <td>@product.Name</td>
+                        <td>@product.ProductType</td>
+                        <td>@product.Quantity @product.QuantityType.ToString().ToLower()</td>
+                        <td>@product.Price</td>
+                    </tr>
+                }
+
             </tbody>
         </table>
     </div>
 </div>
+<div class="clearfix"></div>
+<div class="clearfix"></div>
 
-@Html.ActionLink("Checkout", "Checkout", "Table", new { tableID = Model.Id }, new { @class = "btn btn-success pull-right" })
+
+@Html.ActionLink("Checkout", "Checkout", "Table", new { tableID = Model.Id }, new { @class = "btn btn-success btn-lg pull-right" })

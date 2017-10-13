@@ -56,7 +56,8 @@ namespace ROM.Web.Controllers
 
             var userID = this.User.Identity.GetUserId();
             var restauranName = restaurantModel.Name;
-            this.restaurantService.CreateRestaurant(userID, restauranName);
+            var countOfTables = restaurantModel.CountOfTables;
+            this.restaurantService.CreateRestaurant(userID, restauranName, countOfTables);
 
             return this.RedirectToAction("ManageRestaurant");
         }

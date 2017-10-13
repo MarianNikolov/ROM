@@ -59,7 +59,6 @@ namespace ROM.Services.Data
         {
             table.Products.Add(product);
             product.Tables.Add(table);
-
             this.tableRepository.Update(table);
             this.productRepository.Update(product);
 
@@ -69,7 +68,6 @@ namespace ROM.Services.Data
         public void RemoveProductFromTable(Table table)
         {
             table.Products.Clear();
-
             this.tableRepository.Update(table);
 
             this.saveContext.Commit();
@@ -78,6 +76,8 @@ namespace ROM.Services.Data
         public void ChangeTableStatus(Table table)
         {
             table.IsFree = table.IsFree ? false : true;
+            this.tableRepository.Update(table);
+
             saveContext.Commit();
         }
     }

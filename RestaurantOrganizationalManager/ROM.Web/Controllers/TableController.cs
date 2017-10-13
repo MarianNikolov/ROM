@@ -30,16 +30,29 @@ namespace ROM.Web.Controllers
             var products = this.productService.GetAll().ToList();
             var table = this.tableService.GetTablesByID(tableId).FirstOrDefault();
 
-            if (table.Products.Count == 0 && !table.IsFree)
+            if (table.Products.Count == 0 && table.IsFree)
             {
                 this.tableService.ChangeTableStatus(table);
             }
 
             /// AUTOMAPPER
             var productsViewModel = new List<ProductViewModel>();
+            var addedProductsViewModel = new List<ProductViewModel>();
             foreach (var product in products)
             {
                 productsViewModel.Add(new ProductViewModel()
+                {
+                    Id = product.Id,
+                    Name = product.Name,
+                    Price = product.Price,
+                    ProductType = product.ProductType,
+                    Quantity = product.Quantity,
+                    QuantityType = product.QuantityType
+                });
+            }
+            foreach (var product in table.Products)
+            {
+                addedProductsViewModel.Add(new ProductViewModel()
                 {
                     Id = product.Id,
                     Name = product.Name,
@@ -54,7 +67,7 @@ namespace ROM.Web.Controllers
                 Id = table.Id,
                 Number = table.Number,
                 RestaurantName = restaurantName,
-                AddedProducts = new List<ProductViewModel>(),
+                AddedProducts = addedProductsViewModel,
                 Products = productsViewModel
             };
 
@@ -64,7 +77,7 @@ namespace ROM.Web.Controllers
 
         public ActionResult AddProductToTable(Guid? productId, Guid? tableId)
         {
-            if (this.Request.IsAjaxRequest())
+            if (!this.Request.IsAjaxRequest())
             {
                 throw new Exception();
             }
@@ -132,10 +145,9 @@ namespace ROM.Web.Controllers
             {
                 Bill = bill,
                 Products = productsViewModel
-
             };
 
-
+            this.tableService.ChangeTableStatus(table);
             this.tableService.RemoveProductFromTable(table);
 
             return this.View(checkoutViewModel);

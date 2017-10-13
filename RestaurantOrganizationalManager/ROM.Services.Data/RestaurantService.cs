@@ -30,7 +30,7 @@ namespace ROM.Services.Data
             this.saveContext = saveContext;
         }
 
-        public void CreateRestaurant(string userID, string restaurantName)
+        public void CreateRestaurant(string userID, string restaurantName, int countOfTables)
         {
             var user = this.userRepository.All
                 .Where(u => u.Id == userID)
@@ -48,7 +48,7 @@ namespace ROM.Services.Data
             restaurant.Users.Add(user);
 
 
-            for (int j = 1; j <= 8; j++)
+            for (int j = 1; j <= countOfTables; j++)
             {
                 var table = new Table()
                 {
