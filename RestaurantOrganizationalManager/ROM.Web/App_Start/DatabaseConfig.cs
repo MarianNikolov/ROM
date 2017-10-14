@@ -7,7 +7,7 @@ namespace ROM.Web.App_Start
     {
         public static void RegisterDatabase()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ROM.Data.DbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ROM.Data.RomDbContext, Configuration>());
         }
     }
 }

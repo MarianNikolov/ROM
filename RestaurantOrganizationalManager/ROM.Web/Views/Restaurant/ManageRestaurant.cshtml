@@ -1,0 +1,44 @@
+﻿@using ROM.Web.ViewModels.Restaurant
+@model RestaurantViewModel
+
+<div class="jumbotron">
+    <h1 class="page-title animated lightSpeedIn">@Model.Name</h1>
+
+</div>
+
+<div class="col-md-12">
+
+    @foreach (var table in Model.Tables)
+    {
+        <div class="col-md-3 text-center table-img-container">
+            <img class="table-img" src="@Url.Content(table.ImgUrl)" />
+            <h3>@table.Number</h3>
+            
+            @if (table.IsFree)
+            {
+                @Html.ActionLink("Place customers", "Index", "Table", new { restaurantName = Model.Name, tableId = table.Id }, new { @class = "btn btn-success btn-block" })
+            }
+            else
+            {
+                @Html.ActionLink("Manage", "Index", "Table", new { restaurantName = Model.Name, tableId = table.Id }, new { @class = "btn btn-primary btn-block" })
+            }
+
+        </div>
+    }
+</div>
+<div class="clearfix"></div>
+
+
+@section tableScript {
+    <script>
+        $("body").on("mouseover", ".table-img-container", function (e) {
+            var animationName = "animated pulse";
+            var animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+
+            $(e.target).addClass(animationName).one(animationEnd, function () {
+                $(this).removeClass(animationName)
+            });
+        });
+
+    </script>
+}

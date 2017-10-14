@@ -8,10 +8,10 @@ namespace ROM.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    public sealed class Configuration : DbMigrationsConfiguration<DbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<RomDbContext>
     {
         private const string AdministratorUserName = "admin@abv.com";
-        private const string AdministratorPassword = "123456";
+        private const string AdministratorPassword = "111111";
 
         public Configuration()
         {
@@ -19,20 +19,20 @@ namespace ROM.Data.Migrations
             this.AutomaticMigrationDataLossAllowed = false;
         }
 
-        protected override void Seed(DbContext context)
+        protected override void Seed(RomDbContext context)
         {
             this.SeedData(context);
             this.SeedAll(context);
             base.Seed(context);
         }
 
-        private void SeedAll(DbContext context)
+        private void SeedAll(RomDbContext context)
         {
             if (!context.Restaurants.Any())
             {
                 var roleName = "Manager";
                 var userNames = new List<string>() { "aaa@abv.bg", "bbb@abv.bg", "ccc@abv.bg", };
-                var userPasswords = new List<string>() { "aaaaaa", "bbbbbb", "cccccc", };
+                var usersPasswords = "111111";
                 var restaurantNames = new List<string>() { "Cosmos", "Chef's", "Wok to Walk" };
 
                 var roleStore = new RoleStore<IdentityRole>(context);
@@ -63,7 +63,20 @@ namespace ROM.Data.Migrations
 
                     context.Restaurants.Add(restaurant);
 
-                    userManager.Create(user, userPasswords[i]);
+
+                    for (int j = 1; j <= 8; j++)
+                    {
+                        var table = new Table()
+                        {
+                            Number = j,
+                            CreatedOn = DateTime.Now
+                        };
+
+                        context.Tables.Add(table);
+                        restaurant.Tables.Add(table);
+                    }
+                    
+                    userManager.Create(user, usersPasswords);
                     userManager.AddToRole(user.Id, roleName);
                 }
 
@@ -127,7 +140,7 @@ namespace ROM.Data.Migrations
             }
         }
 
-        private void SeedData(DbContext context)
+        private void SeedData(RomDbContext context)
         {
             if (!context.Roles.Any())
             {

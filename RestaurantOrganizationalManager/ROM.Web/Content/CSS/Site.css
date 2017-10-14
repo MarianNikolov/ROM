@@ -56,3 +56,40 @@ textarea {
 .statistic {
     color: white;
 }
+
+.table-img {
+    width: 70%;
+    mix-blend-mode: multiply;
+}
+
+.first-statistic {
+    -webkit-animation-duration: 2s;
+    -webkit-animation-delay: 2s;
+    -webkit-animation-iteration-count: 1;
+}
+
+.second-statistic {
+    -webkit-animation-duration: 2s;
+    -webkit-animation-delay: 3s;
+    -webkit-animation-iteration-count: 1;
+}
+
+.third-statistic {
+    -webkit-animation-duration: 2s;
+    -webkit-animation-delay: 4s;
+    -webkit-animation-iteration-count: 1;
+}
+
+.page-title{
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 0.3s;
+    -webkit-animation-iteration-count: 1;
+}
+
+.table-img-container {
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-iteration-count: 1;
+}
+
+

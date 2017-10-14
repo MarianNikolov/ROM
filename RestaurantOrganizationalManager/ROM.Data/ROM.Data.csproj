@@ -74,7 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbContext.cs" />
+    <Compile Include="RomDbContext.cs" />
     <Compile Include="Migrations\201710081404407_Initial.cs" />
     <Compile Include="Migrations\201710081404407_Initial.Designer.cs">
       <DependentUpon>201710081404407_Initial.cs</DependentUpon>
@@ -91,6 +91,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ROM.Common\ROM.Common.csproj">
+      <Project>{B7FE9C81-8D76-4398-A3AA-E7DA52353789}</Project>
+      <Name>ROM.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ROM.Data.Model\ROM.Data.Model.csproj">
       <Project>{fb73679e-d55f-4f7e-8a71-09b7e69cef0b}</Project>
       <Name>ROM.Data.Model</Name>
