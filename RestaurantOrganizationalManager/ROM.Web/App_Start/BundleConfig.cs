@@ -12,7 +12,8 @@ namespace ROM.Web
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+                        "~/Scripts/jquery.validate*",
+                        "~/Scripts/jquery.unobtrusive-ajax*"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
@@ -23,9 +24,15 @@ namespace ROM.Web
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jslibs").Include(
+                      "~/Scripts/gridmvc.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/CSS/bootstrap.css",
                       "~/Content/CSS/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/cssgrid").Include(
+                      "~/Content/Gridmvc.css"));
         }
     }
 }

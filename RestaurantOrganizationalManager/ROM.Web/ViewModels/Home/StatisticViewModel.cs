@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace ROM.Web.ViewModels.Home
+﻿namespace ROM.Web.ViewModels.Home
 {
     public class StatisticViewModel
     {

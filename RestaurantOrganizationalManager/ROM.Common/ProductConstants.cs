@@ -10,5 +10,8 @@ namespace ROM.Common
     {
         public const int ProductNameMinLength = 2;
         public const int ProductNameMaxLength = 50;
+        public const string NameIsRequired = "Name is Required!";
+        public const string PriceIsRequired = "Price is Required!";
+        public const string QuantityIsRequired = "Quantity is Required!";
     }
 }

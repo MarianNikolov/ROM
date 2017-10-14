@@ -1,0 +1,8 @@
+﻿@model ROM.Web.ViewModels.Table.ProductViewModel
+
+<tr>
+    <td>@Model.Name</td>
+    <td>@Model.ProductType</td>
+    <td>@Model.Quantity @Model.QuantityType.ToString().ToLower()</td>
+    <td>@Model.Price</td>
+</tr>

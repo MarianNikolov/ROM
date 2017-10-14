@@ -2,9 +2,9 @@
 {
     public class SaveContext : ISaveContext
     {
-        private readonly DbContext context;
+        private readonly RomDbContext context;
 
-        public SaveContext(DbContext context)
+        public SaveContext(RomDbContext context)
         {
             this.context = context;
         }

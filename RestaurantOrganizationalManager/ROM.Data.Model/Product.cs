@@ -15,19 +15,19 @@ namespace ROM.Data.Model
             this.tables = new HashSet<Table>();
         }
 
-        [Required]
-        [MinLength(RestaurantConstants.RestaurantNameMinLength)]
-        [MaxLength(RestaurantConstants.RestaurantNameMaxLength)]
+        [Required(ErrorMessage = ProductConstants.NameIsRequired)]
+        [MinLength(ProductConstants.ProductNameMinLength)]
+        [MaxLength(ProductConstants.ProductNameMaxLength)]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = ProductConstants.QuantityIsRequired)]
         public int Quantity { get; set; }
 
         public QuantityType QuantityType { get; set; }
 
         public ProductType ProductType { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = ProductConstants.PriceIsRequired)]
         public decimal Price { get; set; }
         
         public virtual ICollection<Table> Tables

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using ROM.Common
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,7 +7,9 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/bundles/cssgrid")
     @Styles.Render("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+    @Styles.Render("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css")
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -18,15 +21,28 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="@Url.Action("Index", "Home")">
-                    <img class="navbar-brand logo"  src="~/Content/Images/LogoROM.png" alt="ROM" />
+                    <img class="navbar-brand logo" src="~/Content/Images/LogoROM.png" alt="ROM" />
                 </a>
-               @* @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                    @{
+                        if (this.User.IsInRole(RoleConstants.Admin))
+                        {
+                            <li>@Html.ActionLink("Manage restaurants", "Index", "ManageRestaurants", new { area = "Administration" }, null)</li>
+                        }
+                    }
+
+                    @{
+                        if (this.User.Identity.IsAuthenticated)
+                        {
+                            <li>@Html.ActionLink("Restaurant", "Index", "Restaurant", new { area = string.Empty }, null)</li>
+                        }
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -41,7 +57,10 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jslibs")
     @RenderSection("scripts", required: false)
+    @RenderSection("tableScript", required: false)
 </body>
 </html>
