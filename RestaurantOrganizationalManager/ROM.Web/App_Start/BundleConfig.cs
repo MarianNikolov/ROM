@@ -27,9 +27,9 @@ namespace ROM.Web
             bundles.Add(new ScriptBundle("~/bundles/jslibs").Include(
                       "~/Scripts/gridmvc.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle("~/Content/appcss").Include(
                       "~/Content/CSS/bootstrap.css",
-                      "~/Content/CSS/site.css"));
+                      "~/Content/CSS/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/cssgrid").Include(
                       "~/Content/Gridmvc.css"));
