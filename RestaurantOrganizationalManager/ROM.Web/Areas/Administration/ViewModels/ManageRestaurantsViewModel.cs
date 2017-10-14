@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace ROM.Web.Areas.Administration.ViewModels
 {
-    [GridTable(PagingEnabled = true, PageSize = 4)]
+    [GridTable(PagingEnabled = true, PageSize = 8)]
     public class ManageRestaurantsViewModel : IMapFrom<Restaurant>, IHaveCustomMappings
     {
         [GridHiddenColumn]

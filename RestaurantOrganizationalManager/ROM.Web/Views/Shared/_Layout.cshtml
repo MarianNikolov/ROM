@@ -7,7 +7,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/appcss")
     @Scripts.Render("~/bundles/modernizr")
-    @Styles.Render("~/bundles/cssgrid")
+    @Styles.Render("~/Content/cssgrid")
     @Styles.Render("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
     @Styles.Render("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css")
 </head>
@@ -26,9 +26,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("About", "About", "Home", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = string.Empty }, null)</li>
 
                     @{
                         if (this.User.IsInRole(RoleConstants.Admin))
