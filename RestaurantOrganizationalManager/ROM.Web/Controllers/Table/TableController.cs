@@ -52,13 +52,8 @@ namespace ROM.Web.Controllers
 
             var product = this.productService.GetProductByID(productId);
             var table = this.tableService.GetTableByID(tableId);
-
-            if (product == null || table == null)
-            {
-                throw new NullReferenceException();
-            }
-
             this.tableService.AddProductToTable(product, table);
+
             var productViewModel = AutoMapperConfig.Configuration.CreateMapper().Map<ProductViewModel>(product);
                 
             return this.PartialView("_AddProductToTable", productViewModel);
@@ -66,19 +61,9 @@ namespace ROM.Web.Controllers
 
         public ActionResult Checkout(Guid? tableId)
         {
-            if (tableId == null)
-            {
-                throw new NullReferenceException();
-            }
-
             var table = this.tableService.GetTableByID(tableId);
-
-            if (table == null)
-            {
-                throw new NullReferenceException();
-            }
-
             var bill = this.tableService.GetBill(table);
+
             var productsViewModel = table.Products.AsQueryable().MapTo<ProductViewModel>().ToList();
 
             var checkoutViewModel = new CheckoutViewModel()
