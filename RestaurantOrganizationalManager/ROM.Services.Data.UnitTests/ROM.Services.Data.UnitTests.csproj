@@ -65,6 +65,9 @@
     <Compile Include="HomeServiceUnitTests\GetAllProducts_Should.cs" />
     <Compile Include="HomeServiceUnitTests\GetAllRestaurants_Should.cs" />
     <Compile Include="HomeServiceUnitTests\GetAllTables_Should.cs" />
+    <Compile Include="ProductServiceUnitTests\Constructor_Should.cs" />
+    <Compile Include="ProductServiceUnitTests\GetAll_Should.cs" />
+    <Compile Include="ProductServiceUnitTests\GetProductByID_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestaurantServiceUnitTests\Constructor_Should.cs" />
     <Compile Include="RestaurantServiceUnitTests\CreateRestaurant_Should.cs" />
