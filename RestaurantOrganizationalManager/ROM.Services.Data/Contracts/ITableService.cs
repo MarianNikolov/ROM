@@ -12,7 +12,7 @@ namespace ROM.Services.Data.Contracts
 
         void AddProductToTable(Product product, Table table);
 
-        void RemoveProductFromTable(Table table);
+        void RemoveProductsFromTable(Table table);
 
         void ChangeTableStatus(Table table);
     }

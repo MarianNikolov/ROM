@@ -8,6 +8,6 @@ namespace ROM.Services.Data.Contracts
     {
         IQueryable<Product> GetAll();
 
-        IQueryable<Product> GetProductByID(Guid? tableId);
+        Product GetProductByID(Guid? productId);
     }
 }

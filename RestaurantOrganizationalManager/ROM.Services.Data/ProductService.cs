@@ -28,14 +28,22 @@ namespace ROM.Services.Data
             return this.productRepository.All;
         }
 
-        public IQueryable<Product> GetProductByID(Guid? productId)
+        public Product GetProductByID(Guid? productId)
         {
             if (productId == null)
             {
                 throw new NullReferenceException();
             }
 
-            return this.productRepository.All.Where(t => t.Id == productId);
+            var productResult = this.productRepository.All.Where(t => t.Id == productId)
+                .FirstOrDefault(p => p.Id == productId);
+
+            if (productResult == null)
+            {
+                throw new NullReferenceException();
+            }
+
+            return productResult;
         }
     }
 }

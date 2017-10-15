@@ -42,6 +42,11 @@ namespace ROM.Services.Data
 
         public decimal GetBill(Table table)
         {
+            if (table == null)
+            {
+                throw new NullReferenceException();
+            }
+
             decimal bill = 0;
 
             foreach (var product in table.Products)
@@ -54,6 +59,11 @@ namespace ROM.Services.Data
 
         public void AddProductToTable(Product product, Table table)
         {
+            if (product == null || table == null)
+            {
+                throw new NullReferenceException();
+            }
+
             table.Products.Add(product);
             product.Tables.Add(table);
             this.tableRepository.Update(table);
@@ -62,8 +72,13 @@ namespace ROM.Services.Data
             this.saveContext.Commit();
         }
 
-        public void RemoveProductFromTable(Table table)
+        public void RemoveProductsFromTable(Table table)
         {
+            if (table == null)
+            {
+                throw new NullReferenceException();
+            }
+
             table.Products.Clear();
             this.tableRepository.Update(table);
 
@@ -72,7 +87,12 @@ namespace ROM.Services.Data
 
         public void ChangeTableStatus(Table table)
         {
-            table.IsFree = table.IsFree ? false : true;
+            if (table == null)
+            {
+                throw new NullReferenceException();
+            }
+
+            table.IsFree = !table.IsFree;
             this.tableRepository.Update(table);
 
             saveContext.Commit();
