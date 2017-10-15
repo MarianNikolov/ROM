@@ -10,7 +10,7 @@ namespace ROM.Data
     public class RomDbContext : IdentityDbContext<User>
     {
         public RomDbContext()
-            : base("LocalConnection", throwIfV1Schema: false)
+            : base("DefaultConnection")
         {
         }
 
