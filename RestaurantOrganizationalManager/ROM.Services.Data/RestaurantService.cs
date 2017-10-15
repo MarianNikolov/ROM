@@ -52,19 +52,8 @@ namespace ROM.Services.Data
             user.Restaurant = restaurant;
             restaurant.Users.Add(user);
 
-
-            for (int j = 1; j <= countOfTables; j++)
-            {
-                var table = new Table()
-                {
-                    Number = j,
-                    CreatedOn = DateTime.Now
-                };
-
-                this.tableRepository.Add(table);
-                restaurant.Tables.Add(table);
-            }
-
+            CreateTablesForRestaurant(restaurant, countOfTables);
+            
             this.saveContext.Commit();
         }
 
@@ -80,6 +69,21 @@ namespace ROM.Services.Data
             }
 
             return user.Restaurant;
+        }
+
+        private void CreateTablesForRestaurant(Restaurant restaurant, int countOfTables)
+        {
+            for (int j = 1; j <= countOfTables; j++)
+            {
+                var table = new Table()
+                {
+                    Number = j,
+                    CreatedOn = DateTime.Now
+                };
+
+                this.tableRepository.Add(table);
+                restaurant.Tables.Add(table);
+            }
         }
     }
 }

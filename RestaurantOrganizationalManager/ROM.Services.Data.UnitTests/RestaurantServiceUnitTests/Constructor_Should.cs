@@ -13,12 +13,14 @@ namespace ROM.Services.Data.UnitTests.RestaurantServiceUnitTests
         [Test]
         public void ReturnsAnInstance_WhenParametersAreNotNull()
         {
+            // Arrange
             var restaurantRepository = new Mock<IEfRepository<Restaurant>>();
             var userRepository = new Mock<IEfRepository<User>>();
             var tableRepository = new Mock<IEfRepository<Table>>();
             var userRoleService = new Mock<IUserRoleService>();
             var saveContext = new Mock<ISaveContext>();
 
+            //Act
             IRestaurantService restaurantService = new RestaurantService(
                 restaurantRepository.Object,
                 userRepository.Object,
@@ -26,6 +28,7 @@ namespace ROM.Services.Data.UnitTests.RestaurantServiceUnitTests
                 userRoleService.Object,
                 saveContext.Object);
 
+            // Assert
             Assert.IsNotNull(restaurantService);
         }
     }
