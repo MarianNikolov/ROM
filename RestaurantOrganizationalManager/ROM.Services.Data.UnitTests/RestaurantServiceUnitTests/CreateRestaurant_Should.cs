@@ -7,8 +7,6 @@ using ROM.Services.Data.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ROM.Services.Data.UnitTests.RestaurantServiceUnitTests
 {
@@ -54,6 +52,45 @@ namespace ROM.Services.Data.UnitTests.RestaurantServiceUnitTests
 
             //Assert
             Assert.IsNotNull(user.Restaurant);
+        }
+
+        [TestCase("31a21zxc3123acfzc", "Test's restaurant1", 4)]
+        public void VerifySaveContextIsInvoced_WhenValidParametersAreProvided(string userID, string restaurantName, int countOfTables)
+        {
+            // Arrange
+            var restaurantRepository = new Mock<IEfRepository<Restaurant>>();
+            var userRepository = new Mock<IEfRepository<User>>();
+            var tableRepository = new Mock<IEfRepository<Table>>();
+            var userRoleService = new Mock<IUserRoleService>();
+            var saveContext = new Mock<ISaveContext>();
+
+            var user = new User()
+            {
+                Id = userID,
+                Email = "test@abv.bg",
+                PasswordHash = "password"
+            };
+
+            ICollection<User> usersCollection = new List<User>();
+            usersCollection.Add(user);
+
+            userRepository.Setup(u => u.All).Returns(() =>
+            {
+                return usersCollection.AsQueryable();
+            });
+
+            IRestaurantService restaurantService = new RestaurantService(
+                restaurantRepository.Object,
+                userRepository.Object,
+                tableRepository.Object,
+                userRoleService.Object,
+                saveContext.Object);
+
+            //Act
+            restaurantService.CreateRestaurant(userID, restaurantName, countOfTables);
+
+            //Assert
+            saveContext.Verify(x => x.Commit(), Times.Once());
         }
 
         [TestCase("31a21zxc3123acfzc", "Test's restaurant1", 4)]

@@ -98,7 +98,7 @@ namespace ROM.Web.Controllers
             };
 
             this.tableService.ChangeTableStatus(table);
-            this.tableService.RemoveProductFromTable(table);
+            this.tableService.RemoveProductsFromTable(table);
 
             return this.View(checkoutViewModel);
         }

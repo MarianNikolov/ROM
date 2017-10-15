@@ -70,6 +70,12 @@
     <Compile Include="RestaurantServiceUnitTests\CreateRestaurant_Should.cs" />
     <Compile Include="RestaurantServiceUnitTests\GetAll_Should.cs" />
     <Compile Include="RestaurantServiceUnitTests\GetRestaurantByManagerID_Should.cs" />
+    <Compile Include="TableServiceUnitTests\AddProductToTable_Should.cs" />
+    <Compile Include="TableServiceUnitTests\ChangeTableStatus_Should.cs" />
+    <Compile Include="TableServiceUnitTests\Constructor_Should.cs" />
+    <Compile Include="TableServiceUnitTests\GetBill_Should.cs" />
+    <Compile Include="TableServiceUnitTests\GetTableByID_Should.cs" />
+    <Compile Include="TableServiceUnitTests\RemoveProductsFromTable_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
