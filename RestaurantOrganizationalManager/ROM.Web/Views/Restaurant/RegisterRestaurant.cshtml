@@ -8,7 +8,7 @@
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
         <fieldset>
-            <legend>Enter name and count of tables in your restaurant!</legend>
+            <legend class="text-right">Enter name and count of tables in your restaurant!</legend>
             <div class="editor-label">
                 @Html.LabelFor(model => model.Name)
             </div>
@@ -17,6 +17,7 @@
                 @Html.EditorFor(model => model.Name)
                 @Html.ValidationMessageFor(model => model.Name)
             </div>
+            <br>
 
             <div class="editor-label">
                 @Html.LabelFor(model => model.CountOfTables)
@@ -25,9 +26,10 @@
                 @Html.EditorFor(model => model.CountOfTables)
                 @Html.ValidationMessageFor(model => model.CountOfTables)
             </div>
+            <br>
 
             <p>
-                <input type="submit" value="Create" />
+                <input type="submit" value="Create" class="btn btn-primary btn-lg" />
             </p>
         </fieldset>
     }
