@@ -1,7 +1,25 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2 page-title animated lightSpeedIn>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<h2 page-title animated lightSpeedIn class="text-center main-page-title">@ViewBag.Title (ROM) System</h2>
+<div class="text-center">
+    <h3 id="about-title">Restaurant Organizational Manager (ROM) System</h3>
+    <a href="@Url.Action("Index", "Home")">
+        <img class="about-logo" src="~/Content/Images/LogoROM.png" alt="ROM" />
+    </a>
+    <p>This application is about easily managing restaurant, cafeteria, or any other business in this area. It is easy, just try it!</p>
+    <ul class="list-unstyled text-left about-us-list">
+        <li><span class="fa fa-check fa-2x text-success"></span><span class="checklist-text">Register</span></li>
+        <li><span class="fa fa-check fa-2x text-success"></span><span class="checklist-text">Go to <strong>Restaurant</strong></span></li>
+        <li><span class="fa fa-check fa-2x text-success"></span><span class="checklist-text">Enter the restaurant name</span></li>
+        <li><span class="fa fa-check fa-2x text-success"></span><span class="checklist-text">Enter the restaurant's number of tables</span></li>
+        <li><span class="fa fa-check fa-2x text-success"></span><span class="checklist-text">Click <strong>Create</strong></span></li>
+        <li><span class="fa fa-check fa-2x text-success"></span><span class="checklist-text">Click place customers on a certain table number</span></li>
+        <li><span class="fa fa-check fa-2x text-success"></span><span class="checklist-text">Click on customer's chosen products (You will see a table below with the chosen products)</span></li>
+        <li><span class="fa fa-check fa-2x text-success"></span><span class="checklist-text">When the customer wants the bill, just click on <strong>Checkout</strong> button and you will see the final bill amount</span></li>
+        <li><span class="fa fa-check fa-2x text-success"></span><span class="checklist-text">Now you can see a message that the order is finished and now the table is free</span></li>
+        <li><span class="fa fa-check fa-2x text-success"></span><span class="checklist-text">Click on the link <strong>The Order is finished. The table is free. Go to restaurant menu</strong></span></li>
+    </ul>
+</div>
+<div class="clearfix"></div>

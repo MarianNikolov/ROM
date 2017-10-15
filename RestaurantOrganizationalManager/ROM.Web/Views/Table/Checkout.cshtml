@@ -18,27 +18,27 @@
     </div>
 </div>
 
-<div class="container text-center" >
-    @Html.ActionLink("The Order is finished. The table is free. Go to restaurant menu", "Index", "Restaurant", null, new
+<div class="container text-center">
+    @Html.ActionLink("Order finished. The table is free. Go back to restaurant tables", "Index", "Restaurant", null, new
 {
-    @class = "btn btn-succes btn-lg"
+    @class = "btn btn-success btn-lg"
 })
 
 </div>
 <div class="container ">
-    <div class="container">
-        <h2>Invoice</h2>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Product type</th>
-                    <th>Quantity</th>
-                    <th>Product type</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
+    <h2>Invoice</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Product type</th>
+                <th>Quantity</th>
+                <th>Product type</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+
             @foreach (var product in Model.Products)
             {
                 <tr>
@@ -49,6 +49,6 @@
                     <td>@product.Price</td>
                 </tr>
             }
-        </table>
-    </div>
+        </tbody>
+    </table>
 </div>

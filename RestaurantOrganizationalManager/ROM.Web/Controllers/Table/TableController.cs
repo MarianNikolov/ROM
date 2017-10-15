@@ -22,11 +22,6 @@ namespace ROM.Web.Controllers
 
         public ActionResult Index(string restaurantName, Guid? tableId)
         {
-            if (tableId == null)
-            {
-                throw new NullReferenceException();
-            }
-
             var table = this.tableService.GetTableByID(tableId);
             var addedProductsViewModel = table.Products.AsQueryable().MapTo<ProductViewModel>().ToList();
             var allProductsViewModel = this.productService.GetAll().MapTo<ProductViewModel>().ToList();
@@ -55,12 +50,7 @@ namespace ROM.Web.Controllers
                 throw new HttpRequestException();
             }
 
-            if (productId == null || tableId == null)
-            {
-                throw new NullReferenceException();
-            }
-
-            var product = this.productService.GetAll().Where(p => p.Id == productId).FirstOrDefault();
+            var product = this.productService.GetProductByID(productId);
             var table = this.tableService.GetTableByID(tableId);
 
             if (product == null || table == null)
