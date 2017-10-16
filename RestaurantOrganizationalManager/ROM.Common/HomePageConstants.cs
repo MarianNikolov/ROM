@@ -10,6 +10,6 @@ namespace ROM.Common
     {
         public const string RegisteredRestaurants = "Registered restaurants";
         public const string RegisteredTables = "Registered tables";
-        public const string DefaultProducts = "Default products";
+        public const string DefaultProducts = "Registered products";
     }
 }
